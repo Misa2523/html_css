@@ -1,0 +1,52 @@
+/* ブラウザがそれぞれ持っているcssをリセットするための記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;;  /*横幅いっぱい*/
+  height: 50px;  /*高さ*/
+  background-color: red;  /*背景色*/
+}
+
+.main-visual {
+  width: 100%;
+  height: 500px;
+  background-color: orange;
+}
+
+.main {
+  width: 960px;
+  /*解除　height: 500px;*/
+  /*解除　background-color: green;*/
+  display: flex;            /*Flexboxの利用*/
+  justify-content: center;  /*子要素の横並び・中央寄せ*/
+  margin: 0 auto;    /*指定した要素自身を中央寄せ（左右に余白がないとできない）*/
+  /*↑これを使う時は必ずwidthプロパティで横幅を設定しなければならない*/
+}
+
+.sidebar-left {
+  width: 230px;
+  height: 1400px;
+  background-color: palegreen;
+}
+
+.blog {
+  width: 500px;
+  height: 1400px;
+  background-color: limegreen;
+}
+
+.sidebar-right {
+  width: 230px;
+  height: 1400px;
+  background-color: palegreen;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: blue;
+}

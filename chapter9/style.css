@@ -1,0 +1,106 @@
+/* ブラウザがそれぞれ持っているcssをリセットするための記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #FF9A4B;
+}
+
+.main-content {
+  width: 960px;
+  margin: 50px auto;    /*上下、左右*/
+
+  background-color: white;
+  display: flex;    /*親要素であるここに指定することで、子要素を横並びにする*/
+}
+
+.box {
+  width: 300px;
+  padding: 10px;
+  background-color: #EEEEEE;
+
+  position: relative;  /*boxの左上を基準位置とする*/
+
+  margin-right: 30px;    /*右側の余白*/
+}
+
+.box:last-child {
+  margin-right: 0;    /*3つ目のboxは右の余白を消す*/
+}
+
+.step {
+  /*width: auto;*/
+  color: #fff;
+  background-color: #FF9A4B;
+
+  position: absolute;  /*親要素のboxから見て基準の位置に配置*/
+  top: 0;    /*基準位置の上からの距離*/
+  left: 0;   /*基準位置の左からの距離*/
+}
+
+.common-image {
+  /*width: 280px;*/
+  height: 150px;
+
+  background-size: cover;  /*縦横比を維持したまま背景領域を埋め尽くす*/
+  background-position: bottom;  /*背景画像を下側に配置*/
+}
+
+.image1 {
+  background-image: url(img/flow01.png);    /*背景に画像を設定*/
+}
+
+.image2 {
+  background-image: url(img/flow02.png);
+}
+
+.image3 {
+  background-image: url(img/flow03.png);
+}
+
+.title {
+  margin: 15px auto 5px;
+}
+
+footer {
+  width: 100%;
+  height: 50px;
+  background-color: #AAAAAA;
+}
+
+
+/*メディアクエリ*/
+
+/* タブレット縦置きサイズ（768px）以下で適用 */
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%;
+  }
+
+  .main-content {
+    width: 90%;
+    padding-right: 0;
+
+    display: block;    /*子要素を縦並びにする*/
+  }
+
+  .box {
+    width: 90%;
+
+    margin:0 auto;    /*中央にに寄せる*/
+    margin-top: 20px;  /*上側の余白を20px*/
+  }
+
+  .box:first-child {
+    margin-top: 0;    /*1番上のboxは上の余白を消す*/
+  }
+
+  footer {
+    width: 100%;
+  }
+}

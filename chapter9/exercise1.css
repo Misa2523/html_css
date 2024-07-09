@@ -1,0 +1,17 @@
+/* ブラウザがそれぞれ持っているcssをリセットするための記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.fa-brands {
+  font-size: 32px;
+}
+
+.position {
+  position: absolute;  /*親に何も指定してないため、ウィンドウ左上が基準*/
+  top: 100px;    /*上側からの距離*/
+  right: 40px;   /*右側からの距離*/
+}
+

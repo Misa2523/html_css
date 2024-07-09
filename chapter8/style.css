@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.item-list {
+  width: 960px;
+  margin: 50px auto;    /*上下の余白50px、左右は中央寄せ*/
+  list-style: none;    /*箇条書きリストの・を削除*/
+}
+
+.list {
+  padding: 20px;
+  background-color: white;
+}
+
+.list:nth-child(odd) {  /*奇数番目のみ適用*/
+  background-color: lightgray;
+}
+
+.item-box {
+  width: 960px;
+  /*margin-bottom: 50px;*/
+  margin: 0 auto 50px;  /*上、左右、下*/
+
+  /*子要素のboxを横並びにする*/
+  display: flex;
+  /*justify-content: space-around;/*flexで横並びにした要素の位置を変える
+  /* ↑ display: flex;と一緒に使う*/
+  flex-wrap: wrap;  /*折り返しの指定：折り返して複数表示*/
+}
+
+.box {
+  width: 30%;
+  height: 200px;
+  background-color: yellow;
+}
+
+.box:nth-child(4n+1) {
+  background-color: orange;
+}
+
+/*box動詞の左右の余白を設定*/
+.box:nth-child(3n-1),
+.box:nth-child(3n) {
+  margin-left: 5%;
+}
+
+/*box動詞の上下の余白を設定*/
+.box:nth-child(n+4) {  /*4個目以降に適用（※nには0以上の整数が入る）*/
+  margin-top: 40px;
+}

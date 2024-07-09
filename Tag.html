@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+  <!-- head要素：ブラウザや検索エンジンに伝えたい情報を記述、基本的にWebページ上に表示されない -->
+    <meta charset="UTF-8" />
+    <!-- meta要素：ページの情報を定義する  文字コードはUTF-8にすれば基本的に文字化けしない -->
+    <title>htmlのTag</title>
+    <!-- title要素：Webページのタイトルを指定する　ブラウザのタブや検索エンジンの検索結果のページ名となる -->
+  </head>
+
+  <body>
+  <!-- body要素：実際にブラウザに表示されるコンテンツを記述する -->
+    <h1>2章　HTMLに関して</h1>
+
+      <h2>【終了タグが必要な要素】</h2>
+      <h3>見出し（h1,h2,h3,h4...と数が大きくなるほど、見出しは小さくなります。h6まであります）</h3>
+
+      <p>段落（文章のまとまり）</p>
+
+      <a>リンク</a>
+      href="https://~~~"    属性：href、属性値："～～"
+
+      <ul>箇条書き</ul>
+
+      HTMLファイルにCSSファイルを読み込ませる<br>
+      <link rel="stylesheet" href="ファイル名.css"/>   //同フォルダ内にhtmlとcssファイルがあるとき<br>
+      <link rel="stylesheet" href="フォルダ名/ファイル名.css"/>   //下のフォルダにあるcssファイルを読み込むとき<br>
+      <link rel="stylesheet" href="../ファイル名.css"/>   //上のフォルダにあるcssファイルを読み込むとき<br>
+      rel属性：現在のファイルとリンク先ファイルとの関係性を指定する（CSSは、stylesheetと記述）<br>
+      href属性：読み込む外部ファイルを指定する（今回はcssファイル名）<br>
+
+
+      <h2>【終了タグが不要な要素（空要素）】</h2>
+      <img>：画像を表示する<br>
+      src="～～.jpg" alt="名称"    src属性：挿入画像の名前と場所、alt属性：何かのトラブルで画像が表示されないときに代わりに表示されるテキス<br>
+
+      <br>：改行
+
+
+      <h2>【同じタグ名だけどそれぞれの色を変えたい】</h2>
+      <p>この文章だけ赤にしたい</p>
+      <p>この文章は黒のまま</p>
+        ・id属性で指定する場合<br>
+          →この時、色を変えたい方のタグに 「id="id名"をつける」<br>
+          →cssファイルには、「#id名{}」とすればセレクタとして使用可能<br>
+        ・class属性で指定する場合<br>
+          →この時、色を変えたい方のタグに 「class="class名"をつける」<br>
+          →cssファイルには、「.class名{}」とすればセレクタとして使用可能<br>
+        <br>
+        class属性は同じページ内で複数回使用可能
+
+
+    <h1>2章　CSSに関して</h1>
+      セレクタ {
+        プロパティ: 値;
+      }
+      <br>
+
+      セレクタ：CSSを適用したい対象箇所<br>
+      プロパティ：「何を変えるか？」を指定する<br>
+      値：「どのように変えるか？」を指定する<br>
+
+
+    <h1>3章</h1>
+      <h2>divタグ</h2>
+        領域の設定をする。タグとして特別な意味はないが、これで囲った部分を一塊として扱うことが可能。<br>
+        <br>
+
+        <h3>divタグのwdthとheightを指定(px, %, auto)</h3>
+          【pxで指定】<br>
+          pxは、センチメートルやインチのような単なる単位の1つとして考えてよい。
+          以下の%で大きさを指定した場合は、周りのサイズや画面のサイズによって大きさが変わってしまう。
+          pxで指定するとセンチメートルで大きさを指定するのと同じように、画面幅によらずに絶対的なサイズを指定できる。
+          <br>
+          【%で指定】<br>
+          画面幅や親要素などに対して相対的な幅で設定できる。
+          パソコンだけでなく、スマートフォンの小さい画面でサイトを表示させるときに便利。
+          <br>
+          【autoで指定】<br>
+          「px」や「％」で指定しない場合の値は、「auto（自動）」になる。つまり、初期値は「auto」。
+          widthの場合、親の要素と同じ横幅になる。親要素がないと、widthは画面の横幅いっぱいに広がる。
+          heightの場合、子要素と同じ高さになる。子要素がないと、heightは０になる。
+          <br>
+
+        <h3>色について</h3>
+          【色の名前で指定する】<br>
+          color: red;  赤<br>
+          【カラーコードで指定する】<br>
+          color: #FF0000;　赤<br>
+          この6桁の英数字は16進数。（#000000黒、#FFFFFF白）<br>
+          6桁には光の三原色が2桁ずつ割り振られていて、各色を調整して様々な色を表現する。<br>
+          (赤のコードを例にすると左から、FF部分でRedを、00部分でGreenを、00部分でBlueを調整する。<br>
+
+        <h3>ボックスモデルについて</h3>
+          要素は全て四角い領域（ボックス）で定義されるという考え方。<br>
+          コンテンツ領域の周囲は、内側余白（padding）、枠線（border）、外側余白（margin）で構成されている。<br>
+          border：要素に枠線を設定する　padding：要素の内側にある余白　margin：要素の外側にある余白<br>
+          <br>
+          【cssの書き方】<br>
+          border: 5px solid yellow;<br>
+          （太さ、枠線の種類、色）<br>
+          <br>
+          【borderの種類】<br>
+          solid：実線　double：二重線　dashed：破線<br>
+          <br>
+          【borderの位置を指定】<br>
+          border-top　border-right　border-bottom　border-left<br>
+          <br>
+          他にも、border-style(種類)、border-width(太さ)、border-color(色)などの特定のスタイルを変更する場合も、適用する位置を指定することができる。<br>
+          ・border-top-style: double;     上の辺だけ二重線<br>
+          ・border-right-width: 10px;     右の辺だけ太さ10px<br>
+          ・border-bottom-color: red;      下の辺だけ色が赤<br>
+          <br>
+          【余白を指定】<br>
+          padding：borderより内側の余白<br>
+          margin：borderより外側の余白<br>
+          paddingとmarginでは、背景色を設定したときに違いが出る。<br>
+          paddingでは背景色が適用されるが、marginでは適用されない。<br>
+          <br>
+
+    <h1>4章</h1>
+      <h2>cssの初期設定</h2>
+      /* ブラウザがそれぞれ持っているCSSをリセットするための記述 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }<br>
+      上記のcssをリセットcssという。これはブラウザ特有のcssを解除するためのcss。<br>
+      これを記述すれば意図したとおりにWebページが表示される。<br>
+      <br>
+
+
+    <h1>5章</h1>
+      <h2>divタグ</h2>
+        <h3>リスト</h3>
+          nav要素：ナビゲーションメニューを設定するときに使う。領域を作成するための要素。<br>
+          ul要素：Unordered Listの略。順序のないリスト（箇条書きリスト）を表示する要素。<br>
+          olタグ：Ordered Listの略で、番号付きのリスト を表示する要素。<br>
+          ulもolもリストの各項目をli要素で記述する。<br>
+          リストの作成は、ul要素とli要素、もしくはol要素とli要素をセットで利用する。<br>
+          <br>
+        <h3>演習の横並び</h3>
+          flex-wrapについて<br>
+          <a href="https://zero-plus.io/media/flex-wrap-how-to-use/">flex-wrap</a>
+          <br>
+
+
+    <h1>6章</h1>
+      <h2>○○</h2>
+
+
+    <h1>7章</h1>
+      <h2>○○</h2>
+
+
+    <h1>8章</h1>
+      <h2>演習の横並び</h2>
+        横並びの種類<br>
+        <a href="https://web-camp.io/magazine/archives/102456#st-toc-h-17">横並びの方法</a>
+        【float】指定した要素を横に回りこませることが可能
+        【inline-block】html要素の種類をinline-block要素に変えて横並びにできる
+        【flexbox】親要素に「display: flex;」を指定するだけで横並びにできる。配置場所の指定方法が多様
+        <a href="https://www.w2solution.co.jp/corporate/tech/%E3%81%A9%E3%81%A3%E3%81%A1%E3%82%92%E4%BD%BF%E3%81%86%EF%BC%9Fcss%E3%81%A7%E6%A8%AA%E4%B8%A6%E3%81%B3%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%EF%BC%88float-or-flex%EF%BC%89/">floatとflex</a>
+
+
+    <h1>9章</h1>
+      <h2>Font Awesome</h2>
+        FontAwesomeの読み込みコード (※cssの読み込みより前に書く）<br>
+        <script src="https://kit.fontawesome.com/fc3bd943f3.js" crossorigin="anonymous"></script>
+        <br>
+      <h2>フォントの変更</h2>
+        font-familyプロパティを使う。<br>
+        複数指定可能。左から順に優先される。（PCに使いたいフォントが入ってないことを想定して予備のフォントも併記する）<br>
+        ※「メイリオ」のようなフォント名が日本語、「Bradley Hand」のような途中で半角スペースが入るものは、""で囲む。<br>
+        <br>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

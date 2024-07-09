@@ -1,0 +1,329 @@
+/* ブラウザがそれぞれ持っているcssをリセットするための記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  color: #6c6b6b;  /*追記コード：文字の色を統一*/
+}
+
+a {
+  text-decoration: none;  /*リンク部分のデフォルト設定されてるアンダーラインを消す*/
+}
+
+header, nav, h2, .main-visual, footer {
+    /*フォントの指定　左から順に優先される*/
+  font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+}
+
+header {
+  width: 90%;  /*横幅90%*/
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+
+  position: relative;  /* #socialの基準位置を相対位置へ変更*/
+}
+
+header .heading {    /* headerタグ内のheadingクラスにのみ反映される */
+  font-size: 32px;
+}
+
+.social i {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.social {
+  /*親要素のheaderにrelativeが指定されているため、headerの左上が基準位置*/
+  position: absolute;  /*headerの左上を基準に絶対位置で指定する*/
+  top: 22px;    /*上からの距離*/  /*headerの左上から22px下側へ移動*/
+  right: 22px;  /*右からの距離*/  /*headerの右上から22px左側へ移動*/
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.nav-list-item {
+  list-style: none;      /*箇条書きリスト行頭のスタイルを制御する*/
+  /*↑今回は・をいれたくないためnone*/
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.main-visual {
+  /* ↓あとで消す？　width: 100%;　background-size: coverで背景領域が黄金比を維持したまま表示されるため、横幅の指定はいらない*/
+  width: 100%;
+  height: 300px;
+  /*background-color: orange;*/
+  background-image: url(img/img/mv.jpg);    /*背景に画像を設定*/
+  background-size: cover;  /*縦横比を維持したまま背景領域を埋め尽くす*/
+  background-position: center;  /*背景画像を中央に配置*/
+}
+
+.main-visual-content {
+  width: 40%;      /*画面幅が変わってもバランスを保つため%で指定*/
+  height: 300px;    /*親の高さにそろえる*/
+  background-color: rgba(0, 0, 0, 0.5);    /*背景色：半透明の黒*/
+  /*rgba(赤, 緑, 青, 透明度)　透明度は0～1で設定(小数点で0.8など)　0が透明で1が不透明*/
+
+  text-align: center;  /*文字を中央揃え*/
+  padding-top: 105px;  /*上側の内側余白で垂直方向の位置を調整*/
+  box-sizing: border-box;  /*  親要素からはみ出したため、追記した*/
+  /*↑子要素の高さを親要素と同じに保ちつつ、上側の余白を確保する*/
+  /*↑box-sizingプロパティをborder-boxに設定すると、paddingやborderが要素のサイズに含まれる。*/
+}
+
+.main-visual-text {
+  color: #fff;        /*文字色*/
+}
+
+.main-visual-name {
+  margin-top: 30px;    /*上側の外側の余白*/
+  color: #fff;        /*文字色*/
+}
+
+main {
+  width: 800px;
+  /*解除 height: 1400px;    /*枠組みの段階では多めに設定*/
+  /*解除 background-color: green;*/
+
+  display: flex;            /*Flexboxの利用*/
+  justify-content: center;  /*子要素の横並び・中央寄せ*/
+  margin: 0 auto;    /*指定した要素自身を中央寄せ（左右に余白がないとできない）*/
+  /*↑これを使う時は必ずwidthプロパティで横幅を設定しなければならない*/
+  padding: 70px 0;  /*上下に70px、左右に0の内側余白*/
+}
+
+.blog {
+  width: 540px;
+  /*height: 1400px;*/
+  margin-right: 30px;  /*領域の右側余白*/
+  /*background-color: limegreen;*/
+}
+
+.blog-heading {
+  border-bottom: 8px solid #f7f7f7;  /*太さ、線の種類、色*/
+  text-align: center;
+  line-height: 0.6;  /*行の高さ（単位なしだと行内で使用するフォントサイズを1とした倍率になる）*/
+}
+
+.blog-box {
+  padding-top: 50px;
+}
+
+.blog-item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f7f7f7;
+
+  /*blog-imageとblog-textを横並びにするため、その親要素にFlexboxを使う*/
+  display: flex;
+  justify-content: flex-start;  /*左揃えにする*/
+}
+
+.blog-image {
+  height: 180px;
+}
+
+.blog-text {
+  padding: 25px 0 0 30px;
+}
+
+.blog-text-heading {
+  padding-bottom: 15px;
+}
+
+.blog-date {
+  font-size: 12px;
+  display: inline-block;    /*category要素と横並びにする*/
+}
+
+.category {
+  display: inline-block;
+  padding: 5px 8px;
+  background-color: #acabab;
+  border-radius: 3px;  /*領域の四辺の角を丸くする　50%だと正円になる*/
+  color: #fff;
+  font-size: 11px;
+}
+
+.sidebar {
+  width: 230px;
+  /*height: 1400px;*/
+  /*background-color: palegreen;*/
+}
+
+.pagination {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.pagination p {    /*pagination要素のpタグに適用*/
+  display: inline-block;    /*横並び*/
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  color: #fff;
+  background-color: #acabab;
+  border-radius: 3px;
+  line-height: 30px;
+}
+
+.common-heading {
+  border-bottom: 8px solid #f7f7f7;
+  text-align: center;
+  line-height: 0.6;
+}
+
+.sidebar-contents {
+  padding: 50px 0;    /*上下の余白、左右の余白*/
+}
+
+.popular-text,
+.categories-text {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f7f7f7;
+  margin-bottom: 5px;
+}
+
+/*疑似クラス：要素が指定の状態になったら適用*/
+.popular-text:last-child,
+.categories-text:last-child {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.instagram .sidebar-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.instagram-box {
+  width: 110px;
+  padding-top: 110px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+}
+
+.instagram-box:nth-child(odd) {  /*奇数番目のみ適用*/
+  margin: 0 10px 10px 0;
+}
+
+.instagram-box:nth-child(1) {
+  background-image: url(img/img/airport.jpg);
+}
+
+.instagram-box:nth-child(2) {
+  background-image: url(img/img/japan.jpg);
+}
+
+.instagram-box:nth-child(3) {
+  background-image: url(img/img/snow.jpg);
+}
+
+.instagram-box:nth-child(4) {
+  background-image: url(img/img/japan2.jpg);
+}
+
+.instagram-box:nth-child(5) {
+  background-image: url(img/img/lake.jpg);
+}
+
+.instagram-box:nth-child(6) {
+  background-image: url(img/img/road.jpg);
+}
+
+footer {
+  width: 100%;  /*横幅いっぱい*/
+  height: 120px;
+  test-align: center;
+  line-height: 120px;    /*上下の中央揃え*/
+  /*↑行の高さ＝親要素の高さ にすると、文字の位置が「行の高さの中央」になるため、
+  上下中央揃えになりfont-sizeから余った分が上下余白となる*/
+  background-color: #848282;
+}
+
+.footer-text {
+  color: #fff;
+}
+
+
+/*メディアクエリ*/
+
+/* スマートフォンサイズ（425px）以下で適用 */
+@media screen and (max-width: 425px) {
+  header {
+    width: 100%;
+  }
+
+  .social {
+    display: none;    /*アイコン全部非表示（要素ごと）*/
+  }
+
+  .nav-list {
+    width: 100%;
+  }
+
+  .nav-list-item {
+    width: 100%;
+    display: block;  /*要素を縦並びにする*/
+    margin: 0 0 10px 0;
+  }
+
+  .main-visual-content {
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+    display: block;    /*要素を縦並びにする*/
+  }
+
+  .blog {
+    width: 100%;
+    margin: 0;
+  }
+
+  .blog-box {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .blog-image {
+    width: 49%;
+  }
+
+  .blog-text {
+    width: 49%;
+    padding-top: 5px;
+  }
+
+  .pagination {
+    margin-bottom: 50px;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar-contents {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .instagram-box {
+    width: 48%;
+    padding-top: 48%;
+  }
+
+  .instagram-box:nth-child(odd) {
+    margin-right: 4%;
+  }
+
+}
